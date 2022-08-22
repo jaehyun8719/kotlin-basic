@@ -5,6 +5,18 @@ class Person(
     var age: Int = 1,
 ) {
 
+    companion object Factory : Log {
+        private const val MIN_AGE = 1
+
+        fun newBaby(name: String): Person {
+            return Person(name, MIN_AGE)
+        }
+
+        override fun log() {
+            println("나는 Person 클래스의 동행객체 Factory 입니다.")
+        }
+    }
+
    val getUpperCaseName: String
        get() = this.name.uppercase()
 
